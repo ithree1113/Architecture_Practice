@@ -31,11 +31,8 @@ class NoteListViewController: UIViewController {
         noteListDataSource = NoteListDataSource(noteList, cellIdentifier: .noteListCell)
         listTableView.dataSource = noteListDataSource
         listTableView.delegate = self
-//        noteListDataSource.noteList
         
-//        notificationToken = NotificationCenter.default.observer(forName: NoteList.noteListDidChange, using: { (notification) in
-        NotificationCenter.default.addObserver(self, selector: #selector(handleNoteListChangeNotification), name: NoteList.changeNotification, object: nil)
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(handleNoteListChangeNotification), name: NoteList.changeNotification, object: noteList)
     }
     
     @IBAction func tapAddNoteBtn(_ sender: UIBarButtonItem) {
@@ -45,11 +42,14 @@ class NoteListViewController: UIViewController {
     @objc func handleNoteListChangeNotification() {
         let indexPath = IndexPath(row: 0, section: 0)
         listTableView.insertRows(at: [indexPath], with: .automatic)
+        listTableView.reloadData()
     }
 }
 
 extension NoteListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
         let noteDetailViewController = instantiate("Main", viewControllerType: NoteDetailViewController.self)
         navigationController?.pushViewController(noteDetailViewController, animated: true)
     }

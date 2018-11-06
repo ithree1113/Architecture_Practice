@@ -29,11 +29,12 @@ class NoteApp_MVCTests: XCTestCase {
     func testExample() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
-        let aa = noteListViewController.noteList.count
+        let oldCount = noteListViewController.noteList.count
         
         noteListViewController.tapAddNoteBtn(UIBarButtonItem())
+        let newCount = noteListViewController.noteList.count
         
-        XCTAssertEqual(aa + 1, noteListViewController.noteList.count)
+        XCTAssertEqual(oldCount + 1, newCount)
     }
     
     

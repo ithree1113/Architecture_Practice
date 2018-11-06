@@ -11,24 +11,20 @@ import UIKit
 class NoteList {
     
     static let changeNotification = Notification.Name("NoteListDidChange")
-    private var noteList: [Note] = []
+    private var notes: [Note] = []
     
     var count: Int {
-        return noteList.count
+        return notes.count
     }
     
     func getNote(index: Int) -> Note {
-        return noteList[index]
+        return notes[index]
     }
     
     func addNote() {
-        noteList.insert(Note(), at: 0)
+        notes.insert(Note(), at: 0)
         
-        NotificationCenter.default.post(name: NoteList.changeNotification, object: nil, userInfo: nil)
+        NotificationCenter.default.post(name: NoteList.changeNotification, object: self, userInfo: nil)
     }
     
 }
-
-//extension Notification.Name {
-//    public static let NoteListDidChange: Notification.Name
-//}
