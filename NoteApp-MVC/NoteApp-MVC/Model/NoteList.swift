@@ -11,6 +11,10 @@ import UIKit
 class NoteList {
     
     static let changeNotification = Notification.Name("NoteListDidChange")
+    static let changeReason = "reason"
+    static let added = "added"
+    static let deleted = "deleted"
+    
     private var notes: [Note] = []
     
     var count: Int {
@@ -27,4 +31,12 @@ class NoteList {
         NotificationCenter.default.post(name: NoteList.changeNotification, object: self, userInfo: nil)
     }
     
+    func deleteNote(_ index: Int) {
+        notes.remove(at: index)
+        
+        NotificationCenter.default.post(name: NoteList.changeNotification, object: self, userInfo: nil)
+    }
+    
 }
+
+

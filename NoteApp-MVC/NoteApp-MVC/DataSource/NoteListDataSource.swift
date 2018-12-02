@@ -33,6 +33,16 @@ class NoteListDataSource: NSObject, UITableViewDataSource {
         
         return cell
     }
+    
+//    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+//        return true
+//    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if case .delete = editingStyle {
+            noteList.deleteNote(indexPath.row)
+        }
+    }
 }
 
 
