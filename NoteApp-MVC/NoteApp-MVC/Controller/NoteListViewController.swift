@@ -32,17 +32,30 @@ class NoteListViewController: UIViewController {
         listTableView.dataSource = noteListDataSource
         listTableView.delegate = self
         
-        NotificationCenter.default.addObserver(self, selector: #selector(handleNoteListChangeNotification), name: NoteList.changeNotification, object: noteList)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleNoteListChangeNotification(_:)), name: NoteList.changeNotification, object: noteList)
     }
     
     @IBAction func tapAddNoteBtn(_ sender: UIBarButtonItem) {
         noteList.addNote()
     }
 
-    @objc func handleNoteListChangeNotification() {
-        let indexPath = IndexPath(row: 0, section: 0)
-        listTableView.insertRows(at: [indexPath], with: .automatic)
-        listTableView.reloadData()
+    @objc func handleNoteListChangeNotification(_ notification: Notification) {
+        guard let userInfo = notification.userInfo, let reason = userInfo[NoteList.changeReason] as? String else {
+            return
+        }
+        
+        let index = userInfo[NoteList.index] as? Int
+        
+        switch (reason, index) {
+        case (NoteList.added, _):
+            let indexPath = IndexPath(row: 0, section: 0)
+            listTableView.insertRows(at: [indexPath], with: .automatic)
+            listTableView.reloadData()
+        case let (NoteList.deleted, row?):
+            listTableView.deleteRows(at: [IndexPath.init(row: row, section: 0)], with: .automatic)
+        default:
+            break
+        }
     }
 }
 

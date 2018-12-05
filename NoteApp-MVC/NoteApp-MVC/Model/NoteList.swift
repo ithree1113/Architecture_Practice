@@ -14,6 +14,7 @@ class NoteList {
     static let changeReason = "reason"
     static let added = "added"
     static let deleted = "deleted"
+    static let index = "index"
     
     private var notes: [Note] = []
     
@@ -28,13 +29,17 @@ class NoteList {
     func addNote() {
         notes.insert(Note(), at: 0)
         
-        NotificationCenter.default.post(name: NoteList.changeNotification, object: self, userInfo: nil)
+        let userInfo = [NoteList.changeReason: NoteList.added]
+        
+        NotificationCenter.default.post(name: NoteList.changeNotification, object: self, userInfo: userInfo)
     }
     
     func deleteNote(_ index: Int) {
         notes.remove(at: index)
         
-        NotificationCenter.default.post(name: NoteList.changeNotification, object: self, userInfo: nil)
+        let userInfo = [NoteList.changeReason: NoteList.deleted, NoteList.index: index] as [String : Any]
+        
+        NotificationCenter.default.post(name: NoteList.changeNotification, object: self, userInfo: userInfo)
     }
     
 }
