@@ -35,7 +35,7 @@ class NoteListViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(handleNoteListChangeNotification(_:)), name: NoteList.changeNotification, object: noteList)
     }
     
-    @IBAction func tapAddNoteBtn(_ sender: UIBarButtonItem) {
+    @IBAction func addNote(_ sender: UIBarButtonItem) {
         noteList.addNote()
     }
 
@@ -59,11 +59,21 @@ class NoteListViewController: UIViewController {
     }
 }
 
+// MARK: - UITableViewDelegate
 extension NoteListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
         let noteDetailViewController = instantiate("Main", viewControllerType: NoteDetailViewController.self)
+        noteDetailViewController.note = noteList.getNote(index: indexPath.row)
+        noteDetailViewController.didFinishUpdate = { [weak self] (note) in
+            guard let strongSelf = self else {
+                return
+            }
+            if let row = strongSelf.noteList.index(of: note) {
+                strongSelf.listTableView.reloadRows(at: [IndexPath(row: row, section: 0)], with: .automatic)
+            }
+        }
         navigationController?.pushViewController(noteDetailViewController, animated: true)
     }
 }

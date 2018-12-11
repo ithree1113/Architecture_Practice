@@ -8,7 +8,11 @@
 
 import Foundation
 
-class Note {
+class Note: Equatable {
+    
+    static func == (lhs: Note, rhs: Note) -> Bool {
+        return lhs.text == rhs.text && lhs.imageName == rhs.imageName && lhs.sort == rhs.sort
+    }
     
     var text: String = "New Note"
     var imageName: String = ""

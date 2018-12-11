@@ -26,6 +26,10 @@ class NoteList {
         return notes[index]
     }
     
+    func index(of note: Note) -> Int? {
+        return notes.firstIndex(of: note)
+    }
+    
     func addNote() {
         notes.insert(Note(), at: 0)
         

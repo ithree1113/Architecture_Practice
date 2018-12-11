@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="p3s-Fy-dWU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="p3s-Fy-dWU">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -54,7 +54,7 @@
                     <navigationItem key="navigationItem" id="9zx-jC-5JA">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="udV-6q-BIE">
                             <connections>
-                                <action selector="tapAddNoteBtn:" destination="BYZ-38-t0r" id="s33-ss-muc"/>
+                                <action selector="addNote:" destination="BYZ-38-t0r" id="srL-gO-wtA"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -73,9 +73,36 @@
                     <view key="view" contentMode="scaleToFill" id="rSl-N9-aag">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="65H-gz-a4W">
+                                <rect key="frame" x="4" y="84" width="367" height="271.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bgP-mw-NzK">
+                                <rect key="frame" x="4" y="375.5" width="367" height="271.5"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="tqn-ud-UKG" firstAttribute="trailing" secondItem="65H-gz-a4W" secondAttribute="trailing" constant="4" id="FpI-DY-UCk"/>
+                            <constraint firstItem="tqn-ud-UKG" firstAttribute="bottom" secondItem="bgP-mw-NzK" secondAttribute="bottom" constant="20" id="HZI-uM-APz"/>
+                            <constraint firstItem="bgP-mw-NzK" firstAttribute="height" secondItem="65H-gz-a4W" secondAttribute="height" id="Mgp-Ke-Ol2"/>
+                            <constraint firstItem="65H-gz-a4W" firstAttribute="top" secondItem="tqn-ud-UKG" secondAttribute="top" constant="20" id="ORx-jp-TFQ"/>
+                            <constraint firstItem="tqn-ud-UKG" firstAttribute="trailing" secondItem="bgP-mw-NzK" secondAttribute="trailing" constant="4" id="PD5-XZ-SEd"/>
+                            <constraint firstItem="65H-gz-a4W" firstAttribute="leading" secondItem="tqn-ud-UKG" secondAttribute="leading" constant="4" id="WpY-0q-8yH"/>
+                            <constraint firstItem="bgP-mw-NzK" firstAttribute="top" secondItem="65H-gz-a4W" secondAttribute="bottom" constant="20" id="hSZ-w5-yPP"/>
+                            <constraint firstItem="bgP-mw-NzK" firstAttribute="leading" secondItem="tqn-ud-UKG" secondAttribute="leading" constant="4" id="hoL-m9-Yn2"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="tqn-ud-UKG"/>
                     </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="detailImageView" destination="bgP-mw-NzK" id="AoS-77-eSK"/>
+                        <outlet property="detailTextView" destination="65H-gz-a4W" id="fqu-6Z-bKL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M7A-0N-HNG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

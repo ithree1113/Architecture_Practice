@@ -9,9 +9,9 @@
 import Foundation
 
 extension NotificationCenter {
-    func observer(forName: Notification.Name, object: Any? = nil, queue: OperationQueue = .main, using: @escaping ((Notification) -> Void)) -> NotificationToken {
+    func addObserver(name: Notification.Name, object: Any? = nil, queue: OperationQueue = .main, using: @escaping ((Notification) -> Void)) -> NotificationToken {
         
-        let token = addObserver(forName: forName, object: object, queue: queue, using: using)
+        let token = addObserver(forName: name, object: object, queue: queue, using: using)
         
         return NotificationToken(token)
     }
