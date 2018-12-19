@@ -2,33 +2,22 @@
 //  Note.swift
 //  NoteApp-MVC
 //
-//  Created by ithree on 2018/10/25.
+//  Created by EddieCheng on 2018/12/19.
 //  Copyright © 2018 Eddie. All rights reserved.
+//
 //
 
 import Foundation
+import CoreData
 
-class Note: Equatable {
-    
-    static func == (lhs: Note, rhs: Note) -> Bool {
-        return lhs.text == rhs.text && lhs.imageName == rhs.imageName && lhs.sort == rhs.sort
+@objc(Note)
+public class Note: NSManagedObject {
+
+    @nonobjc public class func fetchRequest() -> NSFetchRequest<Note> {
+        return NSFetchRequest<Note>(entityName: "Note")
     }
     
-    var text: String = "New Note"
-    var imageName: String = ""
-    var sort: Int = 0
-    
-    init() {
-        if let lastSort = UserDefaults.standard.value(forKey: .lastSort) as? Int {
-            sort = lastSort + 1
-        }
-        UserDefaults.standard.set(sort, forKey: .lastSort)
-    }
-    
-}
-
-
-
-fileprivate extension String {
-    static let lastSort = "LastSort"
+    @NSManaged public var imageName: String
+    @NSManaged public var sort: Int16
+    @NSManaged public var text: String
 }

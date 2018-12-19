@@ -31,7 +31,7 @@ class NoteApp_MVCTests: XCTestCase {
         // Use XCTAssert and related functions to verify your tests produce the correct results.
         let oldCount = noteListViewController.noteList.count
         
-        noteListViewController.tapAddNoteBtn(UIBarButtonItem())
+        noteListViewController.addNote(UIBarButtonItem())
         let newCount = noteListViewController.noteList.count
         
         XCTAssertEqual(oldCount + 1, newCount)

@@ -36,6 +36,7 @@ class NoteDetailViewController: UIViewController {
             saveImageTo(url: photoFolderURL)
         }
         didFinishUpdate?(note!)
+        CoreData.shared.save()
         navigationController?.popViewController(animated: true)
     }
     

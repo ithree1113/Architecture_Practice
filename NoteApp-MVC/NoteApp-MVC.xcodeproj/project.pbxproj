@@ -15,8 +15,8 @@
 		2C12CE0B2180B88400820B7E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C12CE092180B88400820B7E /* ViewController.swift */; };
 		2C12CE132180C34200820B7E /* CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C12CE122180C34200820B7E /* CoreData.swift */; };
 		2C12CE142180C34200820B7E /* CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C12CE122180C34200820B7E /* CoreData.swift */; };
-		2C24052F2180DECD009CC4FD /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C24052E2180DECD009CC4FD /* Note.swift */; };
-		2C2405312180E471009CC4FD /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C24052E2180DECD009CC4FD /* Note.swift */; };
+		2C147CFB21C95FCF00A0FDE1 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C147CF921C95FCF00A0FDE1 /* Note.swift */; };
+		2C147CFE21C95FD500A0FDE1 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C147CF921C95FCF00A0FDE1 /* Note.swift */; };
 		2C2405322180E486009CC4FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CEAE9AE217F60BF00DA6D3E /* AppDelegate.swift */; };
 		2C2405352180EA24009CC4FD /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2405342180EA24009CC4FD /* Store.swift */; };
 		2C2405362180EA24009CC4FD /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2405342180EA24009CC4FD /* Store.swift */; };
@@ -50,7 +50,7 @@
 		2C12CE052180B75300820B7E /* NoteDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDetailViewController.swift; sourceTree = "<group>"; };
 		2C12CE092180B88400820B7E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		2C12CE122180C34200820B7E /* CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreData.swift; sourceTree = "<group>"; };
-		2C24052E2180DECD009CC4FD /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
+		2C147CF921C95FCF00A0FDE1 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		2C2405342180EA24009CC4FD /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		2C24053721823272009CC4FD /* NoteList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteList.swift; sourceTree = "<group>"; };
 		2C24053A21823B87009CC4FD /* NotificationToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationToken.swift; sourceTree = "<group>"; };
@@ -160,7 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				2C24053721823272009CC4FD /* NoteList.swift */,
-				2C24052E2180DECD009CC4FD /* Note.swift */,
+				2C147CF921C95FCF00A0FDE1 /* Note.swift */,
 				2C2405342180EA24009CC4FD /* Store.swift */,
 			);
 			path = Model;
@@ -290,8 +290,8 @@
 				2CEAE9AF217F60BF00DA6D3E /* AppDelegate.swift in Sources */,
 				2C2405352180EA24009CC4FD /* Store.swift in Sources */,
 				2C24053B21823B87009CC4FD /* NotificationToken.swift in Sources */,
-				2C24052F2180DECD009CC4FD /* Note.swift in Sources */,
 				2C12CE132180C34200820B7E /* CoreData.swift in Sources */,
+				2C147CFB21C95FCF00A0FDE1 /* Note.swift in Sources */,
 				2C24053E21823C08009CC4FD /* NotificationCenter.swift in Sources */,
 				2CEAE9D2217F6A0A00DA6D3E /* NoteListViewController.swift in Sources */,
 				2CEAE9B7217F60BF00DA6D3E /* NoteApp_MVC.xcdatamodeld in Sources */,
@@ -309,7 +309,7 @@
 				2C24053F21823C08009CC4FD /* NotificationCenter.swift in Sources */,
 				2C24053921823272009CC4FD /* NoteList.swift in Sources */,
 				2C2405362180EA24009CC4FD /* Store.swift in Sources */,
-				2C2405312180E471009CC4FD /* Note.swift in Sources */,
+				2C147CFE21C95FD500A0FDE1 /* Note.swift in Sources */,
 				2C12CE142180C34200820B7E /* CoreData.swift in Sources */,
 				2C24053C21823B87009CC4FD /* NotificationToken.swift in Sources */,
 				2CEAE9C7217F60C100DA6D3E /* NoteApp_MVCTests.swift in Sources */,

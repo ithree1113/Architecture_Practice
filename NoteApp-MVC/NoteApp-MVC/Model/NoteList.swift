@@ -16,10 +16,14 @@ class NoteList {
     static let deleted = "deleted"
     static let index = "index"
     
-    private var notes: [Note] = []
+    private var notes: [Note]
     
     var count: Int {
         return notes.count
+    }
+    
+    init() {
+        notes = CoreData.shared.load(.noteEntity, sort: [.sortKey: false]) ?? []
     }
     
     func getNote(index: Int) -> Note {
@@ -31,7 +35,10 @@ class NoteList {
     }
     
     func addNote() {
-        notes.insert(Note(), at: 0)
+        
+        let note: Note = CoreData.shared.insert(.noteEntity, attributeInfo: [.textKey: "New Note", .sortKey: getSort()])
+        
+        notes.insert(note, at: 0)
         
         let userInfo = [NoteList.changeReason: NoteList.added]
         
@@ -39,13 +46,32 @@ class NoteList {
     }
     
     func deleteNote(_ index: Int) {
-        notes.remove(at: index)
+        
+        CoreData.shared.delete(selectedData: notes.remove(at: index))
         
         let userInfo = [NoteList.changeReason: NoteList.deleted, NoteList.index: index] as [String : Any]
         
         NotificationCenter.default.post(name: NoteList.changeNotification, object: self, userInfo: userInfo)
     }
-    
 }
 
+extension NoteList {
+    func getSort() -> Int {
+        var sort = 0
+        if let lastSort = UserDefaults.standard.value(forKey: .lastSort) as? Int {
+            sort = lastSort + 1
+        }
+        UserDefaults.standard.set(sort, forKey: .lastSort)
+        return sort
+    }
+}
+
+
+fileprivate extension String {
+    static let lastSort = "lastSort"
+    
+    static let noteEntity = "Note"
+    static let textKey = "text"
+    static let sortKey = "sort"
+}
 

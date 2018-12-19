@@ -13,17 +13,6 @@ class NoteListViewController: UIViewController {
     
     var noteListDataSource: NoteListDataSource!
     var noteList = NoteList()
-    var notificationToken: NotificationToken!
-//        didSet {
-//            noteListDataSource.noteList = noteList
-//            if noteList.count > oldValue.count {
-//                let indexPath = IndexPath(row: 0, section: 0)
-//                listTableView.insertRows(at: [indexPath], with: .automatic)
-//            } else {
-//
-//            }
-//        }
-//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
