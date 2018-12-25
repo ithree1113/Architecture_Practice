@@ -35,4 +35,24 @@ public class Note: NSManagedObject {
             return nil
         }
     }
+    
+    func getThumbnailImage(size: CGSize) -> UIImage? {
+        guard let image = getImage() else {
+            return nil
+        }
+        UIGraphicsBeginImageContextWithOptions(size, false, 1)
+        
+        let widthRatio  = size.width  / image.size.width
+        let heightRatio = size.height / image.size.height
+        let ratio = widthRatio < heightRatio ? widthRatio : heightRatio
+        
+        let newSize = CGSize(width: image.size.width * ratio, height: image.size.height * ratio)
+        let newOrigin = CGPoint(x: (size.width - newSize.width)/2, y: (size.height - newSize.height)/2)
+        
+        image.draw(in: CGRect(origin: newOrigin, size: newSize))
+        let thumbnailImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return thumbnailImage
+    }
 }

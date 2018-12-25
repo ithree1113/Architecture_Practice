@@ -49,6 +49,6 @@ class NoteListDataSource: NSObject, UITableViewDataSource {
 fileprivate extension UITableViewCell {
     func config(with note: Note) {
         textLabel?.text = note.text
-        imageView?.image = note.getImage()
+        imageView?.image = note.getThumbnailImage(size: CGSize(width: 40, height: 40))
     }
 }
