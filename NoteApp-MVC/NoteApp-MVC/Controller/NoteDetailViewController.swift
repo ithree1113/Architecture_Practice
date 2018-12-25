@@ -21,6 +21,7 @@ class NoteDetailViewController: UIViewController {
         super.viewDidLoad()
         
         detailTextView.text = note?.text
+        detailImageView.image = note?.getImage()
         
         let cameraButton = UIBarButtonItem(barButtonSystemItem: .camera, target: self, action: #selector(cameraBtnDidTap(_:)))
         let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(done(_:)))
@@ -67,8 +68,7 @@ extension NoteDetailViewController: UIImagePickerControllerDelegate, UINavigatio
 // MARK: - Subroutine
 extension NoteDetailViewController {
     func getPhotoFolder() -> URL? {
-        let documentURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-        let photoDirectoryURL = documentURL.appendingPathComponent("Photo", isDirectory: true)
+        let photoDirectoryURL = MyDirectoryHelper().getMyURL(.myPhoto)
         
         if !FileManager.default.fileExists(atPath: photoDirectoryURL.path) {
             do {

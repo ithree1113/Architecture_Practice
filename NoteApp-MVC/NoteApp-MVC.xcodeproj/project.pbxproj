@@ -33,6 +33,7 @@
 		2CEAE9BC217F60C100DA6D3E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CEAE9BA217F60C100DA6D3E /* LaunchScreen.storyboard */; };
 		2CEAE9C7217F60C100DA6D3E /* NoteApp_MVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CEAE9C6217F60C100DA6D3E /* NoteApp_MVCTests.swift */; };
 		2CEAE9D2217F6A0A00DA6D3E /* NoteListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CEAE9D1217F6A0A00DA6D3E /* NoteListViewController.swift */; };
+		2CFE3F9C21D286A3007B7AF1 /* DirectoryHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFE3F9B21D286A3007B7AF1 /* DirectoryHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,7 @@
 		2CEAE9C6217F60C100DA6D3E /* NoteApp_MVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteApp_MVCTests.swift; sourceTree = "<group>"; };
 		2CEAE9C8217F60C100DA6D3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2CEAE9D1217F6A0A00DA6D3E /* NoteListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteListViewController.swift; sourceTree = "<group>"; };
+		2CFE3F9B21D286A3007B7AF1 /* DirectoryHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectoryHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				2C12CE122180C34200820B7E /* CoreData.swift */,
+				2CFE3F9B21D286A3007B7AF1 /* DirectoryHelper.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -287,6 +290,7 @@
 			files = (
 				2C12CDEB217F759900820B7E /* NoteListDataSource.swift in Sources */,
 				2C12CE062180B75300820B7E /* NoteDetailViewController.swift in Sources */,
+				2CFE3F9C21D286A3007B7AF1 /* DirectoryHelper.swift in Sources */,
 				2CEAE9AF217F60BF00DA6D3E /* AppDelegate.swift in Sources */,
 				2C2405352180EA24009CC4FD /* Store.swift in Sources */,
 				2C24053B21823B87009CC4FD /* NotificationToken.swift in Sources */,
