@@ -49,5 +49,6 @@ class NoteListDataSource: NSObject, UITableViewDataSource {
 fileprivate extension UITableViewCell {
     func config(with note: Note) {
         textLabel?.text = note.text
+        imageView?.image = note.getImage()
     }
 }
